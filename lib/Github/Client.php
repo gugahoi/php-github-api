@@ -53,6 +53,7 @@ class Github_Client
     public function __construct(Github_HttpClientInterface $httpClient = null)
     {
         if (null === $httpClient) {
+            require(dirname(__FILE__).'/HttpClient/Curl.php');
             $this->httpClient = new Github_HttpClient_Curl();
         } else {
             $this->httpClient = $httpClient;
